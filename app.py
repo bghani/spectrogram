@@ -67,7 +67,7 @@ if uploaded_file is not None:
     
     # Button to download the spectrogram
     st.download_button(
-        label="Download Spectrogram",
+        label="Download (Mel-)spectrogram",
         data=buf,
         file_name="spectrogram.png",
         mime="image/png"
