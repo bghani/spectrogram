@@ -24,8 +24,8 @@ if spectrogram_type == 'Standard':
 else:
     # Sidebar options for mel spectrogram parameters
     st.sidebar.header("Mel Spectrogram Parameters")
-    n_mels = st.sidebar.slider("Number of Mel bands", 32, 256, 128, step=32)
-    fmax = st.sidebar.slider("Maximum frequency (Hz)", 1000, 16000, 8000, step=1000)
+    n_mels = st.sidebar.slider("Number of Mel bands", 32, 512, 128, step=32)
+    fmax = st.sidebar.slider("Maximum frequency (Hz)", 2000, 24000, 16000, step=1000)
     cmap = st.sidebar.selectbox("Color map", ['viridis', 'plasma', 'inferno', 'magma', 'cividis'])
 
 if uploaded_file is not None:
