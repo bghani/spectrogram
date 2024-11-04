@@ -41,25 +41,25 @@ if uploaded_file is not None:
 
     if spectrogram_type == 'Standard':
         # Generate standard spectrogram
-        st.write("# Generating standard spectrogram...")
+        st.write("Generating a spectrogram...")
         D = librosa.stft(audio, n_fft=n_fft, hop_length=hop_length)
         D_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
         
         # Display spectrogram
         plt.figure(figsize=(10, 4))
         librosa.display.specshow(D_db, sr=sr, hop_length=hop_length, x_axis='time', y_axis='log', cmap=cmap)
-        plt.title("Standard Spectrogram")
+        #plt.title("spectrogram")
         plt.tight_layout()
     else:
         # Generate mel spectrogram
-        st.write("# Generating mel spectrogram...")
+        st.write("Generating a mel-spectrogram...")
         S = librosa.feature.melspectrogram(y=audio, sr=sr, n_mels=n_mels, fmax=fmax)
         S_db = librosa.power_to_db(S, ref=np.max)
         
         # Display mel spectrogram
         plt.figure(figsize=(10, 4))
         librosa.display.specshow(S_db, sr=sr, hop_length=512, x_axis='time', y_axis='mel', cmap=cmap)
-        plt.title("Mel Spectrogram")
+        #plt.title("mel-spectrogram")
         plt.tight_layout()
     
     # Save the spectrogram to a buffer
