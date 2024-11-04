@@ -9,7 +9,7 @@ import io
 st.title("Audio Spectrogram Generator")
 
 # Upload audio file
-uploaded_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
+uploaded_file = st.file_uploader("Upload an audio file", type=["wav", "mp3", "flac"])
 
 if uploaded_file is not None:
 
@@ -41,7 +41,7 @@ if uploaded_file is not None:
 
     if spectrogram_type == 'Standard':
         # Generate standard spectrogram
-        st.write("Generating standard spectrogram...")
+        st.write("## Generating standard spectrogram...")
         D = librosa.stft(audio, n_fft=n_fft, hop_length=hop_length)
         D_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
         
@@ -52,7 +52,7 @@ if uploaded_file is not None:
         plt.tight_layout()
     else:
         # Generate mel spectrogram
-        st.write("Generating mel spectrogram...")
+        st.write("## Generating mel spectrogram...")
         S = librosa.feature.melspectrogram(y=audio, sr=sr, n_mels=n_mels, fmax=fmax)
         S_db = librosa.power_to_db(S, ref=np.max)
         
