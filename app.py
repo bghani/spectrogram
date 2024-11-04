@@ -14,7 +14,7 @@ uploaded_file = st.file_uploader("Upload an audio file", type=["wav", "mp3", "fl
 if uploaded_file is not None:
 
     # Display a text label before the audio player
-    st.write("## Play audio")
+    st.write("# Play audio")
     
     # Play the uploaded audio file
     st.audio(uploaded_file, format="audio/wav")
@@ -41,7 +41,7 @@ if uploaded_file is not None:
 
     if spectrogram_type == 'Standard':
         # Generate standard spectrogram
-        st.write("## Generating standard spectrogram...")
+        st.write("# Generating standard spectrogram...")
         D = librosa.stft(audio, n_fft=n_fft, hop_length=hop_length)
         D_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
         
@@ -52,7 +52,7 @@ if uploaded_file is not None:
         plt.tight_layout()
     else:
         # Generate mel spectrogram
-        st.write("## Generating mel spectrogram...")
+        st.write("# Generating mel spectrogram...")
         S = librosa.feature.melspectrogram(y=audio, sr=sr, n_mels=n_mels, fmax=fmax)
         S_db = librosa.power_to_db(S, ref=np.max)
         
