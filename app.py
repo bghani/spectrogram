@@ -29,7 +29,7 @@ if uploaded_file is not None:
     # Display spectrogram
     plt.figure(figsize=(10, 4))
     librosa.display.specshow(D_db, sr=sr, hop_length=hop_length, x_axis='time', y_axis='log', cmap=cmap)
-    plt.colorbar(format="%+2.0f dB")
+    #plt.colorbar(format="%+2.0f dB")
     plt.title("Spectrogram")
     plt.tight_layout()
     
