@@ -14,7 +14,7 @@ uploaded_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
 if uploaded_file is not None:
 
     # Display a text label before the audio player
-    st.write("### Play audio")
+    st.write("## Play audio")
     
     # Play the uploaded audio file
     st.audio(uploaded_file, format="audio/wav")
